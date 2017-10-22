@@ -6,6 +6,7 @@
 <?php
 	$new_user = $_POST["username"];
 	$taken = false;
+	$message = "This message has not been set.";
 	$my_db = new mysqli("mysql.eecs.ku.edu", "twalenczyk", "P@\$\$word123", "twalenczyk");
 
 	if ($my_db->connect_errno) {
@@ -32,15 +33,15 @@
 
 		if (!$taken) {
 			/* Insert into db if the username is available */
-			$addition = "INSERT INTO Users (user_id) VALUES ('".$new_user."')";
+			$addition = "INSERT INTO Users (user_id) VALUES ('" . $new_user . "')";
 
 			if ($my_db->query($addition)) {
-				$message = $new_user + " successfully added to the database!";	
+				$message = $new_user . " successfully added to the database!";	
 			} else {
 				$message = $my_db->error;
 			}
 		} else {
-			$message = $new_user + " is taken.";
+			$message = $new_user . " is taken.";
 		}
 	} else {
 		$message = "You must provide a user name to user this service.";
@@ -52,7 +53,6 @@
 ?>
 
 <h3> <?php echo $message ?> </h3>
-<h3> <?php echo $new_user ?> </h3>
 
 </html>
 </body>
