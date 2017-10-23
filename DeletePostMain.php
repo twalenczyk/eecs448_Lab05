@@ -10,9 +10,10 @@
     			printf("Connect failed: %s\n", $my_db->connect_error);
     			exit();
 		}
-		$query = "SELECT content, author_id FROM Posts";
+		$query = "SELECT post_id, content, author_id FROM Posts";
 		$result = $my_db->query($query);
 	?>
+	<form action="DeletePostBackend.php" method="POST">
 	<table>
 		<thead>
 			<th> User </th>
@@ -25,12 +26,13 @@
 					<tr>
 						<td> <?php echo $row["author_id"] ?> </td>
 						<td> <?php echo $row["content"] ?> </td>
-						<td> <input type="checkbox"> </td>
+						<td> <input type="checkbox" name="'" . $row["post_id"] . "'" value="delete"> </td>
 					</tr>
 				<?php endwhile; ?>
 			<?php endif; ?>
 		</tbody>
 	</table>
-	
+	<input type="submit" value="Submit" >
+	</form>
 </body>
 </html>
