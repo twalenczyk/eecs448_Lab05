@@ -7,11 +7,13 @@
 	}
 	$query = "SELECT * FROM Users";
 	if ($result = $my_db->query($query)) {
-		echo "<select>";
 		if($result->num_rows > 0 ) {
-			echo "<option value='" . $row["user_id"] . "'>";
+			echo "<select name='username'>";
+			while ($row = $result->fetch_assoc()) {
+				echo "<option value='" . $row["user_id"] . "'>" . $row["user_id"] . "</option>";
+			}
+			echo "</select>";
 		}
-		echo "</select>";
 	}
 	
 	$result->free();
