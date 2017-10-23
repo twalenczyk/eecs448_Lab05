@@ -5,9 +5,7 @@
    		printf("Connect failed: %s\n", $my_db->connect_error);
     		exit();
 	}
-
 	$query = "SELECT * FROM Users";
-
 	if ($result = $my_db->query($query)) {
 		echo "<select>";
 		if($result->num_rows > 0 ) {

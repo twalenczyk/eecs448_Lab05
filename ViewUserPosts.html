@@ -1,10 +1,17 @@
 <!-- Author: Taylor Walenczyk -->
 
+<!-- File Deprecated because php include does not function at all. ViewUserPosts2.php contains this feature. -->
+
 <!DOCTYPE html>
 <html>
 <body>
 
-	
+	<h2>Hello! Please select a user to view their posts.</h2><br>
+	<form action="ViewUserPosts.php" method="POST">
+		<?php include ("ViewUserDropdown.php") ?>
+		<br>
+      		<input type="submit" value="Submit">
+   	</form>
 
 </body>
 </html>
